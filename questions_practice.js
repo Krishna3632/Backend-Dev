@@ -37,4 +37,3 @@ const totalBill = cart.reduce((value,item)=>{
    return value+item.price*item.quantity
 })
 console.log(totalBill)
-// console.log(totalBill);
