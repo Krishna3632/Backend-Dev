@@ -7,6 +7,7 @@ const checkOrder = (orderId)=>{
         const ord = order[orderId];
         if(ord){
             console.log("Fetching order details...");
+            new Promise((res)=>setTimeout(()=>res(),2000));
             resolve(ord);
         }else{
             reject("Order not found!!");
@@ -21,15 +22,19 @@ checkOrder(1)
 // Task 2
 const users = [
     {name:"Krishna","type":"premium"},
-        {name:"Shivam","type":"basic"}
+    {name:"Shivam","type":"basic"}
 ]
     
 
 const auth = (username)=>{
     return new Promise((resolve,reject)=>{
         const user = users.find((u)=>u.name===username);
-        if(user) resolve(user);
-        else reject("no user found");
+        if(user) {
+            new Promise((res)=>setTimeout(()=>res(),2000));
+            resolve(user);
+        } else {
+            reject("no user found");
+        }
     });
 }
 
