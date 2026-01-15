@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 
-const user = (message,user)=>{
+const logger = (message,user)=>{
     console.log(`Hello ${user}, ${message}`);
     fs.appendFile("log.txt",`{${user} : ${message} : ${new Date().toISOString()}}\n`,(err)=>{
         if(err){
@@ -10,4 +10,13 @@ const user = (message,user)=>{
     });
 }
 
-user("Welcome to the system","Krishna");
+const showL = ()=>{
+    fs.readFile("log.txt","utf-8",(err,data)=>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log(data);
+        }
+    });
+}
+module.exports = {logger, showL};
