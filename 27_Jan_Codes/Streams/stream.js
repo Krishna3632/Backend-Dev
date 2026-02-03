@@ -20,6 +20,6 @@ readStream.on('error', (err) => {
     console.error('Error reading the file:', err);
 });
 
-writeStream.on('error', (err) => {
-    console.error('Error writing to the file:', err);
-});
+writeStream.on('finish',()=>{
+    console.log("Finished");
+})
